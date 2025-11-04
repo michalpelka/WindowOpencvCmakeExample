@@ -18,7 +18,20 @@ jobs:
         os: [ubuntu-latest, windows-latest]
         
     steps:
-   
+
+    - name: Install OpenCV (Ubuntu only)
+      if: matrix.os == 'ubuntu-latest'
+      run: |
+        sudo apt-get update
+        # Install development headers for system OpenCV and Python bindings (optional)
+        sudo DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+          build-essential \
+          pkg-config \
+          libopencv-dev \
+          python3-opencv
+        # confirm installation (optional)
+        pkg-config --modversion opencv4 || pkg-config --modversion opencv || echo "opencv pkg-config not found"
+        
     - uses: actions/checkout@v4
       with:
         submodules: recursive
