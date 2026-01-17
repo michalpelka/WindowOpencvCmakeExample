@@ -30,7 +30,7 @@ jobs:
           libopencv-dev \
           python3-opencv \
           libsqlite3-dev \
-          curl
+          libcurl4-openssl-dev
         # confirm installation (optional)
         pkg-config --modversion opencv4 || pkg-config --modversion opencv || echo "opencv pkg-config not found"
         
