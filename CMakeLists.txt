@@ -7,6 +7,16 @@ endif()
 message(STATUS "OpenCV_DIR: ${OpenCV_DIR}")
 find_package(OpenCV REQUIRED)
 
+
+## Proj + SQLite tools
+#if(WIN32)
+  # on Windows, download prebuilt SqlLite binaries
+  include(3rd_binary/sqlite/CMakeLists.txt)
+#endif()
+message(STATUS "SQLITE_DIR: ${SQLITE_DIR}")
+add_subdirectory(3rd/proj)
+
+
 message(STATUS "OpenCV include dirs: ${OpenCV_INCLUDE_DIRS}")
 message(STATUS "OpenCV libs: ${OpenCV_LIBS}")
 
