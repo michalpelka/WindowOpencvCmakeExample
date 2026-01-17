@@ -28,7 +28,9 @@ jobs:
           build-essential \
           pkg-config \
           libopencv-dev \
-          python3-opencv
+          python3-opencv \
+          libsqlite3-dev \
+          curl
         # confirm installation (optional)
         pkg-config --modversion opencv4 || pkg-config --modversion opencv || echo "opencv pkg-config not found"
         
