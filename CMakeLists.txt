@@ -7,6 +7,7 @@ endif()
 message(STATUS "OpenCV_DIR: ${OpenCV_DIR}")
 find_package(OpenCV REQUIRED)
 
+set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "" FORCE)
 
 ## Proj + SQLite tools
 if(WIN32)
