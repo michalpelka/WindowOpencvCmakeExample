@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.28)
-project(OpenCVExample LANGUAGES CXX)
+project(OpenCVExample LANGUAGES CXX C)
 if(WIN32)
   # on Windows, download prebuilt OpenCV binaries
   include(3rd_binary/opencv/CMakeLists.txt)
@@ -10,11 +10,14 @@ find_package(OpenCV REQUIRED)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "" FORCE)
 
 ## Proj + SQLite tools
-if(WIN32)
-  # on Windows, download prebuilt SqlLite binaries
-  include(3rd_binary/sqlite/CMakeLists.txt)
-endif()
-message(STATUS "SQLITE_DIR: ${SQLITE_DIR}")
+#if(WIN32)
+  # on Windows, download prebuilt SqlLite binaries - Proj needs sqlite3.exe for some operations
+  include(3rd_binary/sqlite_tools/CMakeLists.txt)
+
+  # On Windows - Proj needs SQLite library as well - those are built from source
+  include(3rd/sqlite/CMakeLists.txt)
+
+#endif()
 add_subdirectory(3rd/proj)
 
 
