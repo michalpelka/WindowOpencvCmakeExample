@@ -18,8 +18,7 @@ if(WIN32)
   # On Windows - Proj needs SQLite library as well - those are built from source
   include(3rd/sqlite/CMakeLists.txt)
 endif()
-  # Do nothing, SQLite is provided by the system
-else()
+
 add_subdirectory(3rd/proj)
 
 
