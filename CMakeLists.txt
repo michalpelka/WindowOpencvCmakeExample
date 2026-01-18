@@ -10,14 +10,16 @@ find_package(OpenCV REQUIRED)
 set(CMAKE_INSTALL_PREFIX "${CMAKE_BINARY_DIR}/install" CACHE PATH "" FORCE)
 
 ## Proj + SQLite tools
-#if(WIN32)
-  # on Windows, download prebuilt SqlLite binaries - Proj needs sqlite3.exe for some operations
+if(WIN32)
+  # on Windows, download prebuilt SqlLite binaries - Proj needs sqlite3.exe for some operations during compulation,
+  # we cannot build it from source, since it requires to be avialable at configuration time / compilation time.
   include(3rd_binary/sqlite_tools/CMakeLists.txt)
 
   # On Windows - Proj needs SQLite library as well - those are built from source
   include(3rd/sqlite/CMakeLists.txt)
-
-#endif()
+endif()
+  # Do nothing, SQLite is provided by the system
+else()
 add_subdirectory(3rd/proj)
 
 
