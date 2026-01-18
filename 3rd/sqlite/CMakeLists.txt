@@ -20,4 +20,7 @@ target_include_directories(sqlite3 PUBLIC
   ${sqlite_amalgamation_SOURCE_DIR}
 )
 
+set(SQLite3_INCLUDE_DIRS ${sqlite_amalgamation_SOURCE_DIR} CACHE PATH "SQLite3 include directory")
+set(SQLite3_LIBRARIES sqlite3 CACHE STRING "SQLite3 library")
+set(SQLite3_FOUND TRUE CACHE BOOL "SQLite3 found")  
 add_library(sqlite3::sqlite3 ALIAS sqlite3)
