@@ -35,3 +35,12 @@ set(SQLite3_LIBRARY
 )
 
 add_library(SQLite::SQLite3 ALIAS sqlite3)
+
+install(TARGETS sqlite3
+  EXPORT targets
+  ARCHIVE DESTINATION lib
+  LIBRARY DESTINATION lib
+  RUNTIME DESTINATION bin
+)
+
+
