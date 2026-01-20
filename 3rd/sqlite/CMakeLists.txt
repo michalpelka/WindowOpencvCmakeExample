@@ -18,12 +18,20 @@ target_include_directories(sqlite3 PUBLIC
   ${sqlite_amalgamation_SOURCE_DIR}
 )
 
-# MSVC: sqlite amalgamation is huge
 if (MSVC)
   target_compile_options(sqlite3 PRIVATE /bigobj /Zm300)
 endif()
 
-SET(SQLite3_INCLUDE_DIR CACHE ${sqlite_amalgamation_SOURCE_DIR})
-SET(SQLite3_LIBRARY CACHE SQLite3_LIBRARY)
+set(SQLite3_INCLUDE_DIR
+    "${sqlite_amalgamation_SOURCE_DIR}"
+    CACHE PATH "SQLite3 include dir"
+    FORCE
+)
+
+set(SQLite3_LIBRARY
+    "$<TARGET_FILE:sqlite3>"
+    CACHE FILEPATH "SQLite3 library file"
+    FORCE
+)
 
 add_library(SQLite::SQLite3 ALIAS sqlite3)
