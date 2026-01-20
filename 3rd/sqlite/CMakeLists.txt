@@ -23,5 +23,7 @@ if (MSVC)
   target_compile_options(sqlite3 PRIVATE /bigobj /Zm300)
 endif()
 
-# ✅ Canonical target name expected by modern CMake users
+SET(SQLite3_INCLUDE_DIR CACHE ${sqlite_amalgamation_SOURCE_DIR})
+SET(SQLite3_LIBRARY CACHE SQLite3_LIBRARY)
+
 add_library(SQLite::SQLite3 ALIAS sqlite3)
