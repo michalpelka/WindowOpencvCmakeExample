@@ -1,3 +1,4 @@
+include(FetchContent)
 FetchContent(sqlite_amalgamation)
 MakeAvailable(sqlite_amalgamation)
 
