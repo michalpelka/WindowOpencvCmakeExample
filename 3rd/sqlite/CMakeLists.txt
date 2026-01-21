@@ -1,4 +1,5 @@
-FetchContent_MakeAvailable(sqlite_amalgamation)
+FetchContent(sqlite_amalgamation)
+MakeAvailable(sqlite_amalgamation)
 
 add_library(sqlite3 STATIC
   ${sqlite_amalgamation_SOURCE_DIR}/sqlite3.c
