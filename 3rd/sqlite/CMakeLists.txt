@@ -1,6 +1,6 @@
 include(FetchContent)
-FetchContent(sqlite_amalgamation)
-MakeAvailable(sqlite_amalgamation)
+FetchContent_Declare(sqlite_amalgamation)
+FetchContent_MakeAvailable(sqlite_amalgamation)
 
 add_library(sqlite3 STATIC
   ${sqlite_amalgamation_SOURCE_DIR}/sqlite3.c
@@ -28,3 +28,4 @@ install(FILES
   "${sqlite_amalgamation_SOURCE_DIR}/sqlite3.h"
   DESTINATION include
 )
+
