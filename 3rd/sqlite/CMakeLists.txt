@@ -28,8 +28,22 @@ install(TARGETS sqlite3
   RUNTIME DESTINATION bin
 )
 
+set(SQLite3_INCLUDE_DIR
+    "${sqlite_amalgamation_SOURCE_DIR}"
+    CACHE PATH "SQLite3 include dir"
+    FORCE
+)
+
+set(SQLite3_LIBRARY
+    "$<TARGET_FILE:sqlite3>"
+    CACHE FILEPATH "SQLite3 library file"
+    FORCE
+)
+
 install(FILES
   "${sqlite_amalgamation_SOURCE_DIR}/sqlite3.h"
   DESTINATION include
 )
+
+
 
