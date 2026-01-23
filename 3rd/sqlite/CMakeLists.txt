@@ -1,5 +1,9 @@
 include(FetchContent)
-FetchContent_Declare(sqlite_amalgamation)
+
+FetchContent_Declare(
+    sqlite_amalgamation
+    URL https://www.sqlite.org/2023/sqlite-amalgamation-3430000.zip    # Use correct version and link
+)
 FetchContent_MakeAvailable(sqlite_amalgamation)
 
 add_library(sqlite3 STATIC
